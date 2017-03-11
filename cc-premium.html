@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de-de">
+
+  <head>
+  	<meta charset="utf-8">
+  	<title>CatClicker Premium</title>
+  	<style type="text/css">
+
+      #display {
+      	background-color: yellow;
+  	    width: 400px;
+      }
+      
+      #list {
+      	background-color: lightblue;
+  	    width: 150px;
+  	    float: Right;
+      }
+      
+  	</style>
+  </head>
+
+	<body>
+	  <h3>Cat clicker</h3></h>
+  	<div id="list">
+  	  List
+  		<p id="catList">?</p>
+    </div>
+    
+    <div id="display">
+      Display
+  		<p id="catName">?</p>
+  		<p id="catClicks">?</p>
+  		<p id="catImage"></p>
+    </div>
+  
+		<script> 
+		  var cat = function(imageUrl, name, clicks) 
+	    {
+	      this.imageUrl = imageUrl;
+        this.name = name;
+		    this.clicks = clicks;
+		  } ;
+		  
+		  var myCats = new Array();
+		  
+		  myCats[0] = new cat("https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426","miez1",0);
+		  myCats[1] = new cat("https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496","mauz2",0);
+		  myCats[2] = new cat("https://lh5.ggpht.com/LfjkdmOKkGLvCt-VuRlWGjAjXqTBrPjRsokTNKBtCh8IFPRetGaXIpTQGE2e7ZCUaG2azKNkz38KkbM_emA=s0#w=640&h=454","katze",0);
+		  myCats[3] = new cat("https://media.giphy.com/media/vPN3zK9dNL236/giphy.gif","hund",0);
+		  myCats[4] = new cat("http://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg","mauzieeees",0);
+		  
+		  buildList(myCats);
+		  addListeners(myCats.length);
+		  
+	
+      function buildList(myCats) 
+      {
+        var catListLines ="";
+        
+        for (var catCounter = 0; catCounter < myCats.length; catCounter++)
+        {
+           catListLines +=  '<ul id="catId'+ catCounter +'">' + myCats[catCounter]["name"] + '</ul>';
+
+        }
+		  // console.log(catListLines)
+		  var listElement = document.getElementById('catList');
+		  listElement.innerHTML = catListLines;
+      }
+      
+      function addListeners(numOfCats)
+      {
+        for (var catCounter = 0; catCounter < numOfCats ; catCounter++)
+        {
+          var listElement = document.getElementById('catId'+catCounter);
+          listElement.addEventListener('click', (function(listElementId){
+            return function() 
+            {
+              buildCatClickCounter(listElementId);
+            };
+          })(catCounter));
+        }
+      }
+      
+      function buildCatClickCounter(catId)
+      {
+        console.log(catId);
+        var imageElement = document.getElementById('catImage');    
+        var nameElement = document.getElementById('catName');    
+        var clickCounterElement = document.getElementById('catClicks');  
+        
+        imageElement.innerHTML = '<img src="'+myCats[catId]["imageUrl"]+'"></img>';
+        imageElement.addEventListener('click', function()
+        {
+          countImageClick(catId);
+        });
+        
+        nameElement.textContent = myCats[catId]["name"];
+        clickCounterElement.textContent = myCats[catId]["clicks"] + ' Clicks';
+        
+      }
+
+      function countImageClick(catId)
+      {
+        myCats[catId]["clicks"]++;
+        var clickCounterElement = document.getElementById('catClicks');  
+        clickCounterElement.textContent = myCats[catId]["clicks"] + ' Clicks';
+        
+      }
+    
+
+		  
+      // clear the screen for testing
+
+      
+      // // Let's loop over the numbers in our array
+      // for (var i = 0; i < nums.length; i++) {
+      
+      //     // This is the number we're on...
+      //     var num = nums[i];
+      
+      //     // We're creating a DOM element for the number
+      //     var elem = document.createElement('div');
+      //     elem.textContent = num;
+      
+      //     // ... and when we click, alert the value of `num`
+      //   	elem.addEventListener('click', (function(numCopy) {
+      //         return function() {
+      //             alert(numCopy);
+      //         };
+      //     })(num));
+      
+      //     // finally, let's add this element to the document
+      //     document.body.appendChild(elem);
+      // };
+			
+		</script>
+	</body>
+</html>

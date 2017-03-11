@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de-de">
+
+<head>
+	<meta charset="utf-8">
+	<title>CatClicker...</title>
+</head>
+
+	<body>
+	<div>
+		<p id="cat0Name">?</p>
+		<img id="cat0Img" src="https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496"></img>
+		
+		<p id="cat1Name">?</p>
+		<img id="cat1Img" src="https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426"></img>
+	</div>
+		<script> 
+			
+// clear the screen for testing
+document.body.innerHTML = '';
+document.body.style.background="white";
+
+var nums = [1,2,3];
+
+// Let's loop over the numbers in our array
+for (var i = 0; i < nums.length; i++) {
+
+    // This is the number we're on...
+    var num = nums[i];
+
+    // We're creating a DOM element for the number
+    var elem = document.createElement('div');
+    elem.textContent = num;
+
+    // ... and when we click, alert the value of `num`
+  	elem.addEventListener('click', (function(numCopy) {
+        return function() {
+            alert(numCopy);
+        };
+    })(num));
+
+    // finally, let's add this element to the document
+    document.body.appendChild(elem);
+};
+			
+		</script>
+	</body>
+</html>

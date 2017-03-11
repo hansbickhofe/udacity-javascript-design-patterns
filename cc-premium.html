@@ -63,7 +63,7 @@
            catListLines +=  '<ul id="catId'+ catCounter +'">' + myCats[catCounter]["name"] + '</ul>';
 
         }
-		  // console.log(catListLines)
+
 		  var listElement = document.getElementById('catList');
 		  listElement.innerHTML = catListLines;
       }
@@ -84,7 +84,7 @@
       
       function buildCatClickCounter(catId)
       {
-        console.log(catId);
+
         var imageElement = document.getElementById('catImage');    
         var nameElement = document.getElementById('catName');    
         var clickCounterElement = document.getElementById('catClicks');  
@@ -107,33 +107,7 @@
         clickCounterElement.textContent = myCats[catId]["clicks"] + ' Clicks';
         
       }
-    
-
-		  
-      // clear the screen for testing
-
-      
-      // // Let's loop over the numbers in our array
-      // for (var i = 0; i < nums.length; i++) {
-      
-      //     // This is the number we're on...
-      //     var num = nums[i];
-      
-      //     // We're creating a DOM element for the number
-      //     var elem = document.createElement('div');
-      //     elem.textContent = num;
-      
-      //     // ... and when we click, alert the value of `num`
-      //   	elem.addEventListener('click', (function(numCopy) {
-      //         return function() {
-      //             alert(numCopy);
-      //         };
-      //     })(num));
-      
-      //     // finally, let's add this element to the document
-      //     document.body.appendChild(elem);
-      // };
-			
+  
 		</script>
 	</body>
 </html>

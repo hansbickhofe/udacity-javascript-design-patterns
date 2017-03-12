@@ -8,6 +8,11 @@
 }
 
 .list {
-  background-color: lightblue;
-  width: 150px;
+  width: 250px;
+}
+
+.cat {
+    display: inline-block;
+    width: 250px;
+    background-color: #cde;
 }

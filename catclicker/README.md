@@ -1,0 +1,1 @@
+First Catclicker Lessons at Udacity JavaScript Design Patterns 

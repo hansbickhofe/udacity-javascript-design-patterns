@@ -1,0 +1,13 @@
+*,
+*:before,
+*:after {box-sizing: border-box;}
+
+.display {
+  background-color: yellow;
+  width: 400px;
+}
+
+.list {
+  background-color: lightblue;
+  width: 150px;
+}
